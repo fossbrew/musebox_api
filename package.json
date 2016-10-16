@@ -1,5 +1,7 @@
 {
-    "name": "node-api",
+    "name": "garbist-api",
+    "version":"0.1.0",
+    "description":"API for Grabist app",
     "main": "server.js",
     "dependencies": {
         "body-parser": "~1.0.1",
@@ -11,4 +13,9 @@
     "scripts": {
         "start": "node server.js"
     },
+    "author":"jane-doe",
+    "license":"MIT",
+    "engines": {
+	"node":"4.4.7"
+    }
 }
