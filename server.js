@@ -3,6 +3,8 @@ var cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
 var pleer = require('pleer');
+var BillBoard = require('billboard-hot-100');
+
 app.use(cors());
 app.options('*', cors());
 
@@ -19,6 +21,18 @@ router.get('/', function(req, res) {
     res.json({
         message: 'YO!'
     });
+});
+
+router.get('/billboard', function(req, res) {
+    BillBoard.init().then(function(billboard){
+      songs = billboard.getAllSongs()
+      arr = []
+      for(i = 0; i < songs.length; i++)
+         arr.push(songs[i].name)
+      res.json(arr);
+  }).catch(function(err){
+      console.log(err);
+  });
 });
 
 // Get tracks

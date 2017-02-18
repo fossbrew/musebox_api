@@ -1,21 +1,23 @@
 {
-    "name": "garbist-api",
-    "version":"0.1.0",
-    "description":"API for Grabist app",
-    "main": "server.js",
-    "dependencies": {
-        "body-parser": "~1.0.1",
-        "cors": "^2.8.1",
-        "express": "~4.0.0",
-        "mongoose": "~3.6.13",
-        "pleer": "0.0.5"
-    },
-    "scripts": {
-        "start": "node server.js"
-    },
-    "author":"jane-doe",
-    "license":"MIT",
-    "engines": {
-	"node":"4.4.7"
-    }
+  "name": "musebox-api",
+  "version": "0.1.2",
+  "description": "API for Musebox",
+  "main": "server.js",
+  "dependencies": {
+    "billboard-hot-100": "^1.0.4",
+    "billboard-top-100": "^2.0.6",
+    "body-parser": "~1.0.1",
+    "cors": "^2.8.1",
+    "express": "~4.0.0",
+    "mongoose": "~3.6.13",
+    "pleer": "0.0.5"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "jane-doe",
+  "license": "MIT",
+  "engines": {
+    "node": "4.4.7"
+  }
 }
