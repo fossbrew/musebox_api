@@ -29,7 +29,7 @@ router.get('/billboard', function(req, res) {
       console.log(songs)
       arr = []
       for(i = 0; i < songs.length; i++)
-         arr.push(songs[i].name + ' ' + songs[i].artist)
+         arr.push(songs[i].name + ' ' + songs[i].artist.trim())
       res.json(arr);
   }).catch(function(err){
       console.log(err);
