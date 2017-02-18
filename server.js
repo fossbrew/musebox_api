@@ -26,9 +26,10 @@ router.get('/', function(req, res) {
 router.get('/billboard', function(req, res) {
     BillBoard.init().then(function(billboard){
       songs = billboard.getAllSongs()
+      console.log(songs)
       arr = []
       for(i = 0; i < songs.length; i++)
-         arr.push(songs[i].name)
+         arr.push(songs[i].name + ' ' + songs[i].artist)
       res.json(arr);
   }).catch(function(err){
       console.log(err);
