@@ -24,7 +24,8 @@ router.get('/', function(req, res) {
 // Get tracks
 router.route('/search').post(function(req, res) {
     pleer.search(req.body.query, function(err, response) {
-        console.log(req.body.query);
+        if (!err)
+            console.log(req.body.query);
         res.json(response.tracks);
     });
 });
