@@ -10,7 +10,8 @@
     "cors": "^2.8.1",
     "express": "~4.0.0",
     "mongoose": "~3.6.13",
-    "pleer": "0.0.5"
+    "pleer": "0.0.5",
+    "slack-node": "^0.1.8"
   },
   "scripts": {
     "start": "node server.js"

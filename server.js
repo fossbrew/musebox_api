@@ -4,6 +4,20 @@ var app = express();
 var bodyParser = require('body-parser');
 var pleer = require('pleer');
 var BillBoard = require('billboard-hot-100');
+var Slack = require('slack-node');
+
+webhookUri = "https://hooks.slack.com/services/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";
+
+slack = new Slack();
+slack.setWebhook(webhookUri);
+
+slack.webhook({
+  channel: "#downloads",
+  username: "museboxbot",
+  text: "This is posted to #general and comes from a bot named webhookbot."
+}, function(err, response) {
+  console.log(response);
+});
 
 app.use(cors());
 app.options('*', cors());
