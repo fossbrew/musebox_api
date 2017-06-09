@@ -11,14 +11,6 @@ webhookUri = "https://hooks.slack.com/services/T5QTBNZ2L/B5SBVTTQW/ulE3tsBQccxkQ
 slack = new Slack();
 slack.setWebhook(webhookUri);
 
-slack.webhook({
-  channel: "#downloads",
-  username: "museboxbot",
-  text: "This is posted to #general and comes from a bot named webhookbot."
-}, function(err, response) {
-  console.log(response);
-});
-
 app.use(cors());
 app.options('*', cors());
 
@@ -40,7 +32,6 @@ router.get('/', function(req, res) {
 router.get('/billboard', function(req, res) {
     BillBoard.init().then(function(billboard){
       songs = billboard.getAllSongs()
-      console.log(songs)
       arr = []
       for(i = 0; i < songs.length; i++)
          arr.push(songs[i].name + ' ' + songs[i].artist.trim())
@@ -62,6 +53,14 @@ router.route('/search').post(function(req, res) {
 // Get track information
 router.route('/info/:track_id').get(function(req, res) {
     pleer.getInfo(req.params.track_id, function(err, response) {
+        slack.webhook({
+          channel: "#downloads",
+          username: "museboxbot",
+          text: "Someone just downloaded "
+        }, function(err, response) {
+          console.log(response);
+        });
+        console.log(response.data);
         res.json(response.data);
     });
 });
